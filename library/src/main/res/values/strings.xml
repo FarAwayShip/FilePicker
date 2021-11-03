@@ -1,0 +1,38 @@
+<resources>
+    <string name="title">Kuai Ke</string>
+    <string name="all">Total：</string>
+    <string name="reading">Reading</string>
+    <string name="total">Total: </string>
+    <string name="remain">Remain: </string>
+    <string name="gb">GB</string>
+    <string name="image">Image</string>
+    <string name="video">Video</string>
+    <string name="music">Music</string>
+    <string name="doc">Doc</string>
+    <string name="apk">Apk</string>
+    <string name="zip">Zip</string>
+    <string name="delete">Delete</string>
+    <string name="filename">File name</string>
+    <string name="fileNameSearch">File name search</string>
+    <string name="fileSearch">Type file search</string>
+    <string name="parent_folder">Parent folder</string>
+        
+    <!-- Explorer activity -->
+    <string name="activity_explorer">Send Items</string>
+    <string name="activity_explorer_internal">Internal Storage</string>
+    <string name="activity_explorer_removable">Removable Storage (%1$s)</string>
+    <string name="activity_explorer_hint">Long press to send multiple items</string>
+    <string name="activity_explorer_error">Unable to open directory:\n%1$s</string>
+    <string name="activity_explorer_kb">%1$d KB</string>
+    <string name="activity_explorer_mb">%1$d MB</string>
+    <string name="activity_explorer_gb">%1$d GB</string>
+
+    <string name="menu_explorer_actions_send">Send</string>
+    <string name="menu_explorer_options_show_hidden">Show Hidden Items</string>
+    
+    
+    
+    <string name="file_type_not_found">Sorry, no files of this type were found</string>
+    <string name="loading_files">Loading, please wait…</string>
+    <string name="search_result">Search results</string>
+</resources>

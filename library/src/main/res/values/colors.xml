@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/blue</color>
+    <color name="colorPrimaryDark">@color/blue</color>
+    <color name="colorAccent">@color/blue</color>
+    <color name="backGround">#eae7dd</color>
+    <color name="textColor">#1d1d1d</color>
+    <color name="textColor2">#ffffff</color>
+    <color name="BColor">#fff</color>
+    <color name="button">#a9a9a9</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white1">#E9EFF6</color>
+    <color name="grey">#C1CED9</color>
+    <color name="grey1">#B3C0CB</color>
+    <color name="grey2">#31424A</color>
+    <color name="blue">#688BFF</color>
+    <color name="blue_dark">#0A2B43</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#42BB31</color>
+
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="7dp">
+    <com.mcxtzhang.swipemenulib.SwipeMenuLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:swipeEnable="false"
+        android:clickable="true"
+        >
+
+    <LinearLayout
+        android:id="@+id/word_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/BColor"
+        android:orientation="horizontal"
+        android:padding="7dp"
+        >
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_docs"/>
+
+        <TextView
+            android:id="@+id/item_word_name"
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/textColor"
+            android:text="@string/filename"/>
+
+    </LinearLayout>
+        <TextView
+            android:id="@+id/file_word_delete"
+            style="@style/file_item_select"
+            android:background="#ff0000"
+            android:textSize="21sp"
+            android:text="@string/delete"/>
+    </com.mcxtzhang.swipemenulib.SwipeMenuLayout>
+</androidx.cardview.widget.CardView>
