@@ -21,8 +21,10 @@ class ExplorerMainFragment : Fragment(), ExplorerFragment.Listener {
 
     companion object {
         const val TAG = "ExplorerMainFragment"
-        fun newInstance(): ExplorerMainFragment {
-            return ExplorerMainFragment()
+        fun newInstance(fileExts: Array<String> = emptyArray()): ExplorerMainFragment {
+            val fragment = ExplorerMainFragment()
+            fragment.mFileExts = fileExts
+            return fragment
         }
     }
 
@@ -30,6 +32,7 @@ class ExplorerMainFragment : Fragment(), ExplorerFragment.Listener {
     private var mFragment: ExplorerFragment? = null
     private val mShowHidden = false
     private var mDirectories: ArrayList<StorageDirectory>? = null
+    private var mFileExts = emptyArray<String>()
 
     private inner class StorageDirectory internal constructor(
         private val mName: String,
@@ -54,12 +57,18 @@ class ExplorerMainFragment : Fragment(), ExplorerFragment.Listener {
         mFragment = ExplorerFragment()
 
         // If directory is not empty, pass it along to the fragment
+        val arguments = Bundle()
         if (directory != null) {
-            val arguments = Bundle()
+
             arguments.putString(ExplorerFragment.DIRECTORY, directory)
             arguments.putBoolean(ExplorerFragment.SHOW_HIDDEN, mShowHidden)
-            mFragment!!.arguments = arguments
         }
+
+        if (mFileExts.isNotEmpty()) {
+            arguments.putStringArray(ExplorerFragment.FILE_EXTS, mFileExts)
+        }
+
+        mFragment!!.arguments = arguments
 
         // Begin a transaction to insert the fragment
         val transaction: FragmentTransaction = childFragmentManager.beginTransaction()

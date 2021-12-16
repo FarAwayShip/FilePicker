@@ -10,7 +10,8 @@ import java.lang.IllegalArgumentException
 
 class FilesPagerAdapter(
     activity: FragmentActivity,
-    val mode: Int = FileSelectActivity.MODE_NORMAL
+    val mode: Int = FileSelectActivity.MODE_NORMAL,
+    val fileExts: Array<String> = emptyArray()
 ) :
     FragmentStateAdapter(activity) {
     override fun getItemCount(): Int {
@@ -19,7 +20,9 @@ class FilesPagerAdapter(
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> if (mode == FileSelectActivity.MODE_NORMAL) FilesFragment.newInstance() else ExplorerMainFragment.newInstance()
+            0 -> if (mode == FileSelectActivity.MODE_NORMAL) FilesFragment.newInstance() else ExplorerMainFragment.newInstance(
+                fileExts
+            )
             1 -> ExplorerMainFragment.newInstance()
             else -> throw IllegalArgumentException("Not found fragment for position: $position")
         }

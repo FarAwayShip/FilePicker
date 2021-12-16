@@ -61,7 +61,7 @@ class FileSelectActivity : AppCompatActivity() {
     }
 
     private fun setup() {
-        mAdapter = FilesPagerAdapter(this, mode)
+        mAdapter = FilesPagerAdapter(this, mode, fileExts)
         mBinding.pager.isUserInputEnabled = false
         mBinding.pager.adapter = mAdapter
         TabLayoutMediator(mBinding.tabLayout, mBinding.pager) { tab, position ->

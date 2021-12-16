@@ -20,6 +20,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import com.farawayship.library.R;
@@ -33,6 +34,7 @@ public class ExplorerFragment extends ListFragment
 
     private static final String TAG = "ExplorerFragment";
     static final String DIRECTORY = "directory";
+    static final String FILE_EXTS = "FILE_EXTS";
     static final String SHOW_HIDDEN = "show_hidden";
 
     interface Listener {
@@ -75,6 +77,13 @@ public class ExplorerFragment extends ListFragment
         if (arguments != null) {
             directory = arguments.getString(DIRECTORY);
         }
+        String[] exts = {};
+        if (arguments != null) {
+            exts = arguments.getStringArray(FILE_EXTS);
+            if (exts == null) {
+                exts = new String[]{};
+            }
+        }
         if (directory == null) {
             directory = Environment.getExternalStorageDirectory().getPath();
         }
@@ -84,7 +93,7 @@ public class ExplorerFragment extends ListFragment
                 directory,
                 arguments != null && arguments.getBoolean(SHOW_HIDDEN),
                 getActivity(),
-                this
+                this, exts
         );
         setListAdapter(mDirectoryAdapter);
     }
@@ -104,7 +113,7 @@ public class ExplorerFragment extends ListFragment
             if (file.isDirectory()) {
                 mListener.onBrowseDirectory(file.getPath());
             } else {
-                Log.d(TAG, "on file selected: "+file.getAbsolutePath());
+                Log.d(TAG, "on file selected: " + file.getAbsolutePath());
                 EventBus.getDefault().post(new FileSelectEvent(file));
 //                ArrayList<Uri> uris = new ArrayList<>();
 //                uris.add(Uri.fromFile(file));

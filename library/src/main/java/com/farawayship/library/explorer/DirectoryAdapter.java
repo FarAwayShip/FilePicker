@@ -49,6 +49,7 @@ class DirectoryAdapter extends ArrayAdapter<File> {
     private Listener mListener;
     private String mDirectory;
     private boolean mShowHidden;
+    private String[] mFileExts;
     private boolean mCheckboxes = false;
     private boolean mIsInRootFolder = false;
     private SparseArray<File> mChecked = new SparseArray<>();
@@ -88,7 +89,22 @@ class DirectoryAdapter extends ArrayAdapter<File> {
 
         for (File file : files) {
             if (mShowHidden || !file.getName().startsWith(".")) {
-                add(file);
+                if (!file.isDirectory() && file.isFile()) {
+                    if (mFileExts.length > 0) {
+                        for (int i = 0; i < mFileExts.length; i++) {
+                            String ext = mFileExts[i];
+                            if (file.getName().toLowerCase().endsWith("." + ext.toLowerCase())) {
+                                add(file);
+                                break;
+                            }
+                        }
+                    } else {
+                        add(file);
+                    }
+                } else {
+                    add(file);
+                }
+
             }
         }
     }
@@ -101,13 +117,13 @@ class DirectoryAdapter extends ArrayAdapter<File> {
         return mDirectory;
     }
 
-    DirectoryAdapter(String directory, boolean showHidden, Context context, Listener listener) {
+    DirectoryAdapter(String directory, boolean showHidden, Context context, Listener listener, String[] fileExts) {
         super(context, R.layout.view_simple_list_item_explorer, android.R.id.text1);
         mContext = context;
         mListener = listener;
         mDirectory = directory;
         mShowHidden = showHidden;
-
+        mFileExts = fileExts;
         TypedValue typedValue = new TypedValue();
         mContext.getTheme().resolveAttribute(R.attr.colorControlNormal, typedValue, true);
         mColor = typedValue.data;
@@ -231,7 +247,7 @@ class DirectoryAdapter extends ArrayAdapter<File> {
                 .resizeDimen(R.dimen.explorer_icon_size, R.dimen.explorer_icon_size)
                 .centerCrop()
                 .placeholder(ContextCompat.getDrawable(
-                        mContext, ((file == null && !mIsInRootFolder) || file.isDirectory() ) ? R.drawable.ic_folder : R.drawable.ic_file
+                        mContext, ((file == null && !mIsInRootFolder) || file.isDirectory()) ? R.drawable.ic_folder : R.drawable.ic_file
                 ))
                 .into(imageView, new Callback() {
                     @Override
