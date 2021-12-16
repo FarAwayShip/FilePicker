@@ -16,6 +16,7 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import com.farawayship.library.adapter.FilesPagerAdapter
+import com.farawayship.library.databinding.ActivityFileSelectBinding
 import com.farawayship.library.event_bus.FileSelectEvent
 import com.farawayship.library.file_type.ShowActivity
 

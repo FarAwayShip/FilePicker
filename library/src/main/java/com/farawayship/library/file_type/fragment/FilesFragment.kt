@@ -1,4 +1,4 @@
-package pl.itto.file_manager.file_type.fragment
+package com.farawayship.library.file_type.fragment
 
 import android.app.Activity
 import android.content.Intent
@@ -9,8 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import pl.itto.file_manager.R
-import pl.itto.file_manager.databinding.FragmentFileTypesBinding
+import com.farawayship.library.R
+import com.farawayship.library.databinding.FragmentFileTypesBinding
 import com.farawayship.library.file_type.ShowActivity
 
 class FilesFragment : Fragment(), View.OnClickListener {

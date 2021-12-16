@@ -21,6 +21,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.TimeUtils;
+import com.farawayship.library.R;
+import com.farawayship.library.file_type.util.ACache;
+import com.farawayship.library.file_type.util.ApkDetial;
 import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.EventBus;
@@ -29,10 +32,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.itto.file_manager.R;
-import pl.itto.file_manager.file_type.util.ACache;
-import pl.itto.file_manager.file_type.util.ApkDetial;
-import pl.itto.file_manager.file_type.util.FileUtil;
 
 /**
  * Created by 齐泽威 on 2016/12/7.

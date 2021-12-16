@@ -18,12 +18,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.TimeUtils;
+import com.farawayship.library.R;
+import com.farawayship.library.file_type.util.FileUtil;
 
 import java.io.File;
 import java.util.List;
 
-import pl.itto.file_manager.R;
-import pl.itto.file_manager.file_type.util.FileUtil;
 
 /**
  * Created by 齐泽威 on 2017/2/8.

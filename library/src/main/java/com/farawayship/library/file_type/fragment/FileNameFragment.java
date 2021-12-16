@@ -21,14 +21,14 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.blankj.utilcode.util.FileUtils;
 import com.bumptech.glide.Glide;
+import com.farawayship.library.R;
+import com.farawayship.library.file_type.adapter.FileNameAdapter;
+import com.farawayship.library.file_type.util.FileUtil;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.itto.file_manager.R;
-import pl.itto.file_manager.file_type.adapter.FileNameAdapter;
-import pl.itto.file_manager.file_type.util.FileUtil;
 
 /**
  * A simple {@link Fragment} subclass.

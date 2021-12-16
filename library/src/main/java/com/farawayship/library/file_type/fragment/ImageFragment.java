@@ -24,6 +24,9 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.blankj.utilcode.util.FileUtils;
 import com.bumptech.glide.Glide;
+import com.farawayship.library.R;
+import com.farawayship.library.file_type.adapter.ImageAdapter;
+import com.farawayship.library.file_type.util.ACache;
 import com.google.gson.Gson;
 import com.yalantis.taurus.PullToRefreshView;
 
@@ -33,9 +36,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.itto.file_manager.R;
-import pl.itto.file_manager.file_type.adapter.ImageAdapter;
-import pl.itto.file_manager.file_type.util.ACache;
 
 
 /**

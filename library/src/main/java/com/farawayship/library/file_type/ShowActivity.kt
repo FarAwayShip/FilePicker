@@ -3,6 +3,8 @@ package com.farawayship.library.file_type
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.farawayship.library.R
+import com.farawayship.library.file_type.fragment.*
 
 class ShowActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

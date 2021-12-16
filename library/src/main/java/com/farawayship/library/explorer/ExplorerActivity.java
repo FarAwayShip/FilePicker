@@ -13,10 +13,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.farawayship.library.R;
+
 import java.io.File;
 import java.util.ArrayList;
 
-import pl.itto.file_manager.R;import pl.itto.file_manager.explorer.ExplorerFragment;
 
 /**
  * Explorer for browsing directories

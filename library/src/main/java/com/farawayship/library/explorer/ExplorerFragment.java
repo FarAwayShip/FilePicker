@@ -22,7 +22,7 @@ import org.jetbrains.annotations.NotNull;
 import java.io.File;
 import java.util.ArrayList;
 
-import pl.itto.file_manager.R;
+import com.farawayship.library.R;
 import com.farawayship.library.event_bus.FileSelectEvent;
 
 /**

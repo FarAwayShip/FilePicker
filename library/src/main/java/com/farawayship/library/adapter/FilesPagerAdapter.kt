@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.farawayship.library.explorer.ExplorerMainFragment
-import pl.itto.file_manager.file_type.fragment.FilesFragment
+import com.farawayship.library.file_type.fragment.FilesFragment
 import java.lang.IllegalArgumentException
 
 class FilesPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
