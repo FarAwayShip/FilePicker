@@ -2,4 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.farawayship.library">
 
+    <application>
+        <activity android:name=".FileSelectActivity" />
+        <activity android:name=".file_type.ShowActivity" />
+        <activity android:name=".explorer.ExplorerActivity" />
+        <activity android:name=".file_type.FileActivity" />
+    </application>
 </manifest>

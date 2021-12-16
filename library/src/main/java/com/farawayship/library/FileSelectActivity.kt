@@ -23,24 +23,53 @@ import com.farawayship.library.file_type.ShowActivity
 class FileSelectActivity : AppCompatActivity() {
     companion object {
         private const val TAG = "FileSelectActivity"
+
+        /**
+         * Mode normal, will have 2 tabs: Files in category and File explorer
+         */
+        const val MODE_NORMAL = 0
+
+        /**
+         * Mode file tree: Only have File explorer
+         */
+        const val MODE_FILE_TREE = 1
+
+        /**
+         * Extra file mode
+         */
+        const val EXTRA_MODE = "EXTRA_MODE"
+
+        /**
+         * Extra file extensions
+         */
+        const val EXTRA_EXTS = "EXTRA_EXTS"
     }
 
     private lateinit var mActivityResultLauncher: ActivityResultLauncher<String>
 
     private lateinit var mBinding: ActivityFileSelectBinding
     private lateinit var mAdapter: FilesPagerAdapter
+    private var mode = MODE_NORMAL
+    private var fileExts = emptyArray<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // check the mode
+        mode = intent.getIntExtra(EXTRA_MODE, MODE_NORMAL)
+        fileExts = intent.getStringArrayExtra(EXTRA_EXTS) ?: emptyArray()
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_file_select)
         setup()
     }
 
     private fun setup() {
-        mAdapter = FilesPagerAdapter(this)
+        mAdapter = FilesPagerAdapter(this, mode)
+        mBinding.pager.isUserInputEnabled = false
         mBinding.pager.adapter = mAdapter
         TabLayoutMediator(mBinding.tabLayout, mBinding.pager) { tab, position ->
             when (position) {
-                0 -> tab.icon = AppCompatResources.getDrawable(this, R.drawable.ic_history)
+                0 -> tab.icon = AppCompatResources.getDrawable(
+                    this,
+                    if (mode == MODE_NORMAL) R.drawable.ic_history else R.drawable.ic_folder_outline
+                )
                 1 -> tab.icon = AppCompatResources.getDrawable(this, R.drawable.ic_folder_outline)
             }
         }.attach()
