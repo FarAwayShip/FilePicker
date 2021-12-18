@@ -3,9 +3,17 @@
     package="com.farawayship.library">
 
     <application>
-        <activity android:name=".FileSelectActivity" />
-        <activity android:name=".file_type.ShowActivity" />
-        <activity android:name=".explorer.ExplorerActivity" />
-        <activity android:name=".file_type.FileActivity" />
+        <activity
+            android:name=".FileSelectActivity"
+            android:exported="true" />
+        <activity
+            android:name=".file_type.ShowActivity"
+            android:exported="false" />
+        <activity
+            android:name=".explorer.ExplorerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".file_type.FileActivity"
+            android:exported="false" />
     </application>
 </manifest>
