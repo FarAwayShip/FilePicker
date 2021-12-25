@@ -1,24 +1,26 @@
 package com.farawayship.library.search
 
 import android.app.Activity
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
-import androidx.appcompat.widget.SearchView
 import androidx.core.widget.addTextChangedListener
-import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.farawayship.library.R
 import com.farawayship.library.enum.FileType
-import com.farawayship.library.explorer.util.FilesHelper
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class SearchFileActivity : AppCompatActivity() {
+
+    companion object {
+        private const val TAG = "SearchFileActivity"
+
+        /**
+         * Extra file extension
+         */
+        const val EXTRA_EXT = "EXTRA_EXT"
+    }
 
     private val searchViewModel by viewModels<SearchViewModel>()
     private lateinit var searchResultAdapter: SearchResultAdapter
@@ -34,8 +36,8 @@ class SearchFileActivity : AppCompatActivity() {
         }
 
         findViewById<AppCompatEditText>(R.id.search_view).addTextChangedListener {
-            it?.let {
-                text -> searchViewModel.filter(text.toString())
+            it?.let { text ->
+                searchViewModel.filter(text.toString())
             }
         }
         val searchRv = findViewById<RecyclerView>(R.id.result_rv)
@@ -43,7 +45,14 @@ class SearchFileActivity : AppCompatActivity() {
         searchRv.adapter = searchResultAdapter
 
         observe()
-        searchViewModel.search(FileType.PDF)
+
+        val fileExt = intent.getStringExtra(EXTRA_EXT) ?: ""
+        val fileType = when (fileExt.lowercase()) {
+            "pdf" -> FileType.PDF
+            else -> FileType.PDF
+        }
+
+        searchViewModel.search(fileType)
     }
 
     private fun observe() {

@@ -52,14 +52,8 @@ class SearchViewModel : ViewModel() {
 
     fun filter(text: String) {
         val formattedText = text.trim().lowercase()
-
-        Log.d(TAG, "text: $formattedText - ${_allFile.size}")
-
         viewModelScope.launch(Dispatchers.Default) {
             val filterResult = _allFile.filter { f ->
-
-                Log.d(TAG, "file name: ${f.name.lowercase()}")
-
                 f.name.lowercase().contains(formattedText)
             }
             _searchResults.postValue(filterResult)
