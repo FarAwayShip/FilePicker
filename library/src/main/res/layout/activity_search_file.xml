@@ -11,7 +11,10 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="@string/search"/>
+        android:minHeight="?attr/actionBarSize"
+        app:title="@string/search"
+        android:background="@color/green"
+        app:titleTextColor="@color/white"/>
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/search_view"

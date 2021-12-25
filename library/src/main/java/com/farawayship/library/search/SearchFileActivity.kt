@@ -28,6 +28,7 @@ class SearchFileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivitySearchFileBinding.inflate(LayoutInflater.from(this))
+        setContentView(mBinding.root)
         setSupportActionBar(mBinding.toolbar)
 
         searchResultAdapter = SearchResultAdapter(mutableListOf()) {
