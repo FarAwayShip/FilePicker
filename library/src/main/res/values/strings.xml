@@ -35,4 +35,5 @@
     <string name="loading_files">Loading, please wait…</string>
     <string name="search_result">Search results</string>
     <string name="file_name">File name</string>
+    <string name="search">Search</string>
 </resources>

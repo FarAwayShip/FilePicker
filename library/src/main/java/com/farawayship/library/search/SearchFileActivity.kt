@@ -2,13 +2,12 @@ package com.farawayship.library.search
 
 import android.app.Activity
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.farawayship.library.R
+import com.farawayship.library.databinding.ActivitySearchFileBinding
 import com.farawayship.library.enum.FileType
 
 class SearchFileActivity : AppCompatActivity() {
@@ -24,10 +23,12 @@ class SearchFileActivity : AppCompatActivity() {
 
     private val searchViewModel by viewModels<SearchViewModel>()
     private lateinit var searchResultAdapter: SearchResultAdapter
+    private lateinit var mBinding: ActivitySearchFileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search_file)
+        mBinding = ActivitySearchFileBinding.inflate(LayoutInflater.from(this))
+        setSupportActionBar(mBinding.toolbar)
 
         searchResultAdapter = SearchResultAdapter(mutableListOf()) {
             intent.putExtra("file_path", it.path)
@@ -35,14 +36,13 @@ class SearchFileActivity : AppCompatActivity() {
             finish()
         }
 
-        findViewById<AppCompatEditText>(R.id.search_view).addTextChangedListener {
+        mBinding.searchView.addTextChangedListener {
             it?.let { text ->
                 searchViewModel.filter(text.toString())
             }
         }
-        val searchRv = findViewById<RecyclerView>(R.id.result_rv)
-        searchRv.layoutManager = LinearLayoutManager(this)
-        searchRv.adapter = searchResultAdapter
+        mBinding.resultRv.layoutManager = LinearLayoutManager(this)
+        mBinding.resultRv.adapter = searchResultAdapter
 
         observe()
 
