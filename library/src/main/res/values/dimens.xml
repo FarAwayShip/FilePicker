@@ -3,4 +3,5 @@
     <dimen name="explorer_icon_size">48dp</dimen>
     <dimen name="explorer_horizontal_margin">16dp</dimen>
     <dimen name="explorer_vertical_margin">8dp</dimen>
+    <dimen name="list_item_icon_size">36dp</dimen>
 </resources>

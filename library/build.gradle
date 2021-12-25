@@ -58,6 +58,10 @@ dependencies {
     implementation 'com.github.yalantis:taurus:1.0.2'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'org.greenrobot:eventbus:3.2.0'
+    implementation("androidx.core:core-ktx:1.7.0")
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
+    implementation "androidx.activity:activity-ktx:1.4.0"
+    implementation 'androidx.fragment:fragment-ktx:1.4.0'
 }
 
 task androidSourcesJar(type: Jar) {

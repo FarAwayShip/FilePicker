@@ -4,6 +4,10 @@
 
     <application>
         <activity
+            android:name=".search.SearchFileActivity"
+            android:exported="true" >
+        </activity>
+        <activity
             android:name=".FileSelectActivity"
             android:exported="true" />
         <activity
@@ -16,4 +20,5 @@
             android:name=".file_type.FileActivity"
             android:exported="false" />
     </application>
+
 </manifest>

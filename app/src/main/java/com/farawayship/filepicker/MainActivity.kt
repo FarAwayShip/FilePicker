@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.farawayship.library.FileSelectActivity
 import com.farawayship.library.explorer.util.FilesHelper
+import com.farawayship.library.search.SearchFileActivity
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -36,7 +37,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.btn_loadFile -> {
-                loadFiles()
+                val intent = Intent(this, SearchFileActivity::class.java)
+                startActivity(intent)
             }
         }
     }
@@ -44,7 +46,7 @@ class MainActivity : AppCompatActivity() {
     private fun loadFiles() {
         lifecycleScope.launch {
             val files = FilesHelper.loadAllFiles(
-                Environment.getExternalStorageDirectory().getPath(),
+                Environment.getExternalStorageDirectory().path,
                 arrayOf("pdf")
             )
             runOnUiThread {

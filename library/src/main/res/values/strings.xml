@@ -16,7 +16,7 @@
     <string name="fileNameSearch">File name search</string>
     <string name="fileSearch">Type file search</string>
     <string name="parent_folder">Parent folder</string>
-        
+
     <!-- Explorer activity -->
     <string name="activity_explorer">Send Items</string>
     <string name="activity_explorer_internal">Internal Storage</string>
@@ -29,10 +29,10 @@
 
     <string name="menu_explorer_actions_send">Send</string>
     <string name="menu_explorer_options_show_hidden">Show Hidden Items</string>
-    
-    
-    
+
+
     <string name="file_type_not_found">Sorry, no files of this type were found</string>
     <string name="loading_files">Loading, please wait…</string>
     <string name="search_result">Search results</string>
+    <string name="file_name">File name</string>
 </resources>
