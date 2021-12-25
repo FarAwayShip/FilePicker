@@ -30,6 +30,9 @@ class SearchFileActivity : AppCompatActivity() {
         mBinding = ActivitySearchFileBinding.inflate(LayoutInflater.from(this))
         setContentView(mBinding.root)
         setSupportActionBar(mBinding.toolbar)
+        mBinding.toolbar.setNavigationOnClickListener {
+            finish()
+        }
 
         searchResultAdapter = SearchResultAdapter(mutableListOf()) {
             intent.putExtra("file_path", it.path)

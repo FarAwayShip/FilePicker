@@ -14,7 +14,8 @@
         android:minHeight="?attr/actionBarSize"
         app:title="@string/search"
         android:background="@color/green"
-        app:titleTextColor="@color/white"/>
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/ic_back"/>
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/search_view"
