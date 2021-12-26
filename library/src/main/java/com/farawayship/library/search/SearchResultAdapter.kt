@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.farawayship.library.R
 import com.farawayship.library.enum.FileType
+import com.farawayship.library.extension.humanReadableByteCountBin
 
 class SearchResultAdapter(
     private val results: MutableList<SearchResult>,
@@ -55,7 +56,7 @@ class SearchResultAdapter(
             val iconDrawable = iconId?.let { ContextCompat.getDrawable(itemView.context, it) }
             icon.setImageDrawable(iconDrawable)
             name.text = result.name
-            capacity.text = "${result.capacity}"
+            capacity.text = result.capacity.humanReadableByteCountBin()
         }
     }
 }
