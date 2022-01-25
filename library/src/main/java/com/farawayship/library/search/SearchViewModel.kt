@@ -10,7 +10,6 @@ import com.farawayship.library.enum.FileType
 import com.farawayship.library.explorer.util.FilesHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class SearchViewModel : ViewModel() {
 
@@ -22,12 +21,16 @@ class SearchViewModel : ViewModel() {
     val searchResult: LiveData<List<SearchResult>> = _searchResults
     private val _allFile: MutableList<SearchResult> = mutableListOf()
 
+    private val _showLoading = MutableLiveData(false)
+    val showLoading: LiveData<Boolean> = _showLoading
+
     fun search(fileType: FileType) {
         val extension = when (fileType) {
             FileType.PDF -> "pdf"
             FileType.TEXT -> "txt"
             else -> "pdf"
         }
+        _showLoading.value = true
         viewModelScope.launch(Dispatchers.IO) {
             val files = FilesHelper.loadAllFiles(
                 Environment.getExternalStorageDirectory().path,
@@ -47,6 +50,7 @@ class SearchViewModel : ViewModel() {
             _allFile.addAll(results)
 
             _searchResults.postValue(results)
+            _showLoading.postValue(false)
         }
     }
 

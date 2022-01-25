@@ -3,6 +3,7 @@ package com.farawayship.library.search
 import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
@@ -61,7 +62,19 @@ class SearchFileActivity : AppCompatActivity() {
 
     private fun observe() {
         searchViewModel.searchResult.observe(this) {
+            mBinding.emptyTv.visibility = if (it.isEmpty())
+                View.VISIBLE
+            else View.GONE
             searchResultAdapter.update(it)
+        }
+        searchViewModel.showLoading.observe(this) {
+            if (it) {
+                mBinding.loadingContainer.visibility = View.VISIBLE
+                mBinding.contentContainer.visibility = View.GONE
+            } else {
+                mBinding.loadingContainer.visibility = View.GONE
+                mBinding.contentContainer.visibility = View.VISIBLE
+            }
         }
     }
 }

@@ -11,27 +11,71 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        app:title="@string/search"
         android:background="@color/green"
-        app:titleTextColor="@color/white"
-        app:navigationIcon="@drawable/ic_back"/>
+        android:minHeight="?attr/actionBarSize"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="@string/search"
+        app:titleTextColor="@color/white" />
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/search_view"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginHorizontal="12dp"
-        android:layout_marginVertical="8dp"
-        android:background="@drawable/search_bg"
-        android:hint="@string/file_name"
-        android:paddingHorizontal="4dp"
-        android:paddingVertical="8dp"
-        android:maxLines="1"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/result_rv"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/content_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginVertical="8dp"
+                android:background="@drawable/search_bg"
+                android:hint="@string/file_name"
+                android:maxLines="1"
+                android:paddingHorizontal="4dp"
+                android:paddingVertical="8dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/result_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/empty_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/empty_pdf_list"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/loading_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                app:indicatorColor="@color/blue"
+                app:indicatorSize="36dp" />
+        </FrameLayout>
+    </FrameLayout>
 </LinearLayout>
